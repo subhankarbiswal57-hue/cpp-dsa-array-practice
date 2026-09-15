@@ -24,9 +24,9 @@ Node *traverse(vector<int>arr)
 }
 Node *insert(Node* head,int val){
     Node *temp=head;
-    Node *newnode;
+    Node *newnode=new Node(val);
     if(temp==NULL){
-        newnode=temp;
+        return newnode;
     }
     while(temp->next!=NULL){
         temp=temp->next;
@@ -36,4 +36,19 @@ Node *insert(Node* head,int val){
     newnode->next=NULL;
     return head;
 }
-void disp(Node *head)
+void print(Node *head)
+{
+    while(head != NULL)
+    {
+        cout << head->data << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+int main()
+{
+    vector<int>arr={1,2,3,4,5,6,7,8,9};
+    Node *head=traverse(arr);
+    head=insert(head,22);
+    print(head);
+}
